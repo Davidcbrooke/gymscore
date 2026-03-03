@@ -1,0 +1,187 @@
+:root {
+  --bg-1: #071224;
+  --bg-2: #13294b;
+  --text: #eef2ff;
+  --muted: #aab6d8;
+  --glow: #79a5ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: radial-gradient(circle at top, #183764 0%, var(--bg-1) 40%, #020814 100%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+h1 {
+  margin-bottom: 0.4rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.subtitle {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+.schedule-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0 1.8rem;
+}
+
+.schedule-button {
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  color: var(--text);
+  background: linear-gradient(135deg, rgba(127, 167, 255, 0.25), rgba(11, 39, 89, 0.4));
+  padding: 0.75rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.schedule-button.active {
+  border-color: #e8efff;
+  box-shadow: 0 0 24px rgba(130, 184, 255, 0.45);
+}
+
+.visual-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.3rem;
+}
+
+.dial-wrap {
+  position: relative;
+  width: min(84vw, 640px);
+  aspect-ratio: 1/1;
+  margin: 0 auto;
+}
+
+.dial {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 20px rgba(93, 161, 255, 0.4));
+}
+
+.dial-bg {
+  fill: rgba(31, 60, 108, 0.45);
+}
+
+.segment-arc {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 24;
+  transition: opacity 0.3s ease;
+}
+
+.dial-hole {
+  fill: rgba(5, 14, 29, 0.85);
+}
+
+.dial-center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.label {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e0ecff;
+}
+
+.time-left {
+  margin: 0.3rem 0;
+  font-size: clamp(2.2rem, 7vw, 5rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.timing-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.75rem;
+}
+
+.clock-card {
+  background: rgba(14, 35, 71, 0.6);
+  border: 1px solid rgba(167, 201, 255, 0.35);
+  border-radius: 14px;
+  padding: 0.9rem;
+}
+
+.clock-card .small {
+  margin: 0;
+  color: var(--muted);
+}
+
+.clock-card p:last-child {
+  margin: 0.15rem 0 0;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 700;
+}
+
+.message-panel,
+.timeline {
+  background: rgba(14, 35, 71, 0.5);
+  border: 1px solid rgba(167, 201, 255, 0.28);
+  border-radius: 14px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.message-panel h2,
+.timeline h2 {
+  margin: 0;
+}
+
+.message-panel p {
+  color: var(--muted);
+  margin: 0.3rem 0 0.8rem;
+}
+
+textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(197, 216, 255, 0.6);
+  background: rgba(3, 9, 22, 0.7);
+  color: var(--text);
+  padding: 0.8rem;
+  font-size: 1.05rem;
+  resize: vertical;
+}
+
+.timeline ol {
+  margin: 0.8rem 0 0;
+  padding-left: 1.3rem;
+  color: #d9e5ff;
+}
+
+.timeline li {
+  margin: 0.25rem 0;
+}
