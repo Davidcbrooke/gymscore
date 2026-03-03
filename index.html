@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gym Class Timer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Gymnastics Class Timer</h1>
+        <p class="subtitle">Pick a schedule, then project this view on the big screen.</p>
+      </header>
+
+      <section class="schedule-controls" aria-label="Schedule selector">
+        <button data-schedule="weekday" class="schedule-button active">Weekday</button>
+        <button data-schedule="saturday" class="schedule-button">Saturday</button>
+        <button data-schedule="sunday" class="schedule-button">Sunday</button>
+      </section>
+
+      <section class="visual-panel">
+        <div class="dial-wrap">
+          <svg class="dial" viewBox="0 0 320 320" role="img" aria-label="Class segment progress">
+            <circle class="dial-bg" cx="160" cy="160" r="128"></circle>
+            <g id="segmentArcs"></g>
+            <circle class="dial-hole" cx="160" cy="160" r="88"></circle>
+          </svg>
+          <div class="dial-center">
+            <p class="label" id="segmentLabel">Warm Up</p>
+            <p class="time-left" id="segmentTimeLeft">08:00</p>
+            <p class="meta" id="classMeta">Class 1 • Weekday</p>
+          </div>
+        </div>
+
+        <div class="timing-info">
+          <div class="clock-card">
+            <p class="small">Current Time</p>
+            <p id="currentTime">--:--</p>
+          </div>
+          <div class="clock-card">
+            <p class="small">Class Start</p>
+            <p id="classStartTime">16:00</p>
+          </div>
+          <div class="clock-card">
+            <p class="small">Ends At</p>
+            <p id="classEndTime">--:--</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="side-panel">
+        <div class="message-panel">
+          <div>
+            <h2>Coach Notes & Reminders</h2>
+            <p>Type key instructions below. These notes stay saved in this browser.</p>
+          </div>
+          <textarea id="coachNotes" rows="4" placeholder="Example: Rotation 2 — focus on beam posture and controlled landings."></textarea>
+        </div>
+
+        <div class="timeline">
+          <h2>Today’s Class Timeline</h2>
+          <ol id="timelineList"></ol>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
